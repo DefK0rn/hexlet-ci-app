@@ -1,14 +1,15 @@
-const fs = require('fs'); // eslint-disable-line
-const { setupStrapi, cleanupStrapi } = require('./helpers/strapi.js');
+const { setupStrapi, cleanupStrapi } = require('./helpers/strapi');
+
+let strapi; // Объявляем локальную переменную для тестов
 
 beforeAll(async () => {
-  await setupStrapi();
+  strapi = await setupStrapi(); // Сохраняем инстанс Strapi
 });
 
 afterAll(async () => {
   await cleanupStrapi();
 });
 
-it('strapi is defined', () => {
-  expect(strapi).toBeDefined(); // eslint-disable-line
+test('strapi is defined', () => {
+  expect(strapi).toBeDefined();
 });
