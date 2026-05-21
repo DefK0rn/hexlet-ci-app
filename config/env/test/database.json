@@ -4,7 +4,7 @@
       "default": {
         "connector": "bookshelf",
         "settings": {
-          "client": "sqlite",
+          "client": "better-sqlite3",
           "filename": ".tmp/test.db"
         },
         "options": {
