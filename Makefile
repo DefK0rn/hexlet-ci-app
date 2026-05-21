@@ -1,6 +1,7 @@
 setup: install build
 
 install:
+	rm -rf node_modules package-lock.json
 	npm install --legacy-peer-deps
 
 build:
