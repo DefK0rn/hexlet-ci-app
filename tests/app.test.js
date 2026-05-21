@@ -1,4 +1,4 @@
-const { setupStrapi, cleanupStrapi } = require('./helpers/strapi');
+const { setupStrapi, cleanupStrapi } = require('./helpers/strapi.js');
 
 let strapi; // Объявляем локальную переменную для тестов
 
