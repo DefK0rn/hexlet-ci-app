@@ -1,14 +1,13 @@
-const createStrapi = require('@strapi/strapi'); // В v5 функция называется createStrapi
+const strapiPkg = require('@strapi/strapi'); // Импортируем сам пакет как объект
 
 let instance;
 
 async function setupStrapi() {
   if (!instance) {
-    // В v5 вместо Straполнительного вызова .load() используется фабрика createStrapi
-    instance = await createStrapi().load();
+    // В v5 вызывается метод createStrapi() из пакета
+    instance = await strapiPkg.createStrapi().load();
     
-    // В v5 сервер монтируется автоматически при загрузке, 
-    // но если тестам нужен HTTP-сервер, его запускают так:
+    // Запускаем HTTP-сервер для интеграционных тестов
     await instance.server.listen(); 
   }
   return instance;
@@ -16,7 +15,7 @@ async function setupStrapi() {
 
 async function cleanupStrapi() {
   if (instance) {
-    // Закрываем сервер и подключение к БД стандартным методом деструкции v5
+    // Метод destroy полностью очищает инстанс и закрывает соединения с БД
     await instance.destroy();
   }
 }
