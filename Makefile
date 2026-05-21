@@ -14,6 +14,6 @@ test:
 	npm test
 
 lint:
-	npx eslint .
+	ESLINT_USE_FLAT_CONFIG=false npx eslint .
 
 .PHONY: build
