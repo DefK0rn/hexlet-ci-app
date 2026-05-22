@@ -12,6 +12,8 @@ jobs:
       # экшен — выполняет какую-то задачу
       # checkout — клонирует репозиторий
       - uses: actions/checkout@v4
+      # Тестовый action от Hexlet
+      - uses: hexlet-components/hello-from-hexlet-action@release
       # run – произвольная bash-команда=
       - run: make setup
       - run: make test
